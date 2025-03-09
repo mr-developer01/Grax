@@ -11,6 +11,10 @@ body {
   height: 100%;
 }
 
+body{
+  position: relative;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -22,9 +26,9 @@ a {
   width: 2rem;
   height: 2rem;
   position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none; /* Prevent it from interfering with clicks */
+  /* top: 0;
+  left: 0; */
+  pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 99999;
   border-radius: 50%;

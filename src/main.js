@@ -3,8 +3,34 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 const pointer = document.querySelector(".follow-pointer");
+const pointerCentre = document.querySelector(".pointer-centre");
+const links = document.querySelectorAll(".links a");
 
 var tl = gsap.timeline();
+
+links.forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    gsap.to(link, { color: "#FFA6004E", duration: 0.3 });
+    gsap.to(pointer, {
+      backgroundColor: "#FFA6004E",
+      width: "4rem",
+      height: "4rem",
+      duration: 0.3,
+    });
+    gsap.to(pointerCentre, { backgroundColor: "#FFA6004E" });
+  });
+
+  link.addEventListener("mouseleave", () => {
+    gsap.to(link, { color: "", duration: 0.3 }); // Resets to default color
+    gsap.to(pointer, {
+      backgroundColor: "",
+      width: "",
+      height: "",
+      duration: 0.3,
+    });
+    gsap.to(pointerCentre, { backgroundColor: "" });
+  });
+});
 
 // Mousemove event to track pointer position
 document.addEventListener("mousemove", (e) => {
